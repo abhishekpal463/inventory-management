@@ -1,8 +1,11 @@
+
+//////////////////////********requiring packages*************/////////////////
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/ProductDB", {
+//////////////////////********connecting to mongoDB*************/////////////////
+mongoose.connect("mongodb+srv://abhishekpal463:Abhipal123@cluster0-wlpqz.mongodb.net/ProductDB", {
   useUnifiedTopology: true,
   useNewUrlParser: true
 });
@@ -15,6 +18,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
+//////////////////////********constructing mongo schema*************/////////////////
 const productSchema = new mongoose.Schema({
   name: String,
   link: String,
@@ -63,6 +67,7 @@ app.get("/delete", function(req, res) {
   res.render("delete");
 });
 
+//////////////////////********showing products*************/////////////////
 app.get("/show", function(req, res) {
 
       res.render("show", {
@@ -71,6 +76,7 @@ app.get("/show", function(req, res) {
 
 });
 
+//////////////////////********creating product*************/////////////////
 app.post("/create", function(req, res) {
   const product = new Product({
     name: req.body.productName,
@@ -94,6 +100,7 @@ app.post("/create", function(req, res) {
   });
 });
 
+//////////////////////********editing product*************/////////////////
 app.post("/edit", function(req, res) {
 
   Product.updateOne({
@@ -122,6 +129,7 @@ app.post("/edit", function(req, res) {
     });
 });
 
+//////////////////////********deleteing product*************/////////////////
 app.post("/delete", function(req, res) {
       Product.findOne({_id:req.body.productID},function(err,product){
         if(product){
@@ -139,6 +147,6 @@ app.post("/delete", function(req, res) {
     });
 });
 
-app.listen(3000, function() {
+app.listen(3000 || process.env.PORT, function() {
   console.log("Server started on port 3000");
 });
