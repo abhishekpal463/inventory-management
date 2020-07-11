@@ -5,13 +5,13 @@
   <form action="/create" method="post">
   <div class="form-group">
     <label>Product Name</label>
-    <input type="text" class="form-control" name="productName">
+    <input type="text" class="form-control" name="productName" required>
 
     <label>Image Link</label>
-    <input type="url" class="form-control" name="productLink">
+    <input type="url" class="form-control" name="productLink" required>
 
     <label>Product Description</label>
-    <textarea class="form-control" rows="3" name="productDescription"></textarea>
+    <textarea class="form-control" rows="3" name="productDescription" required></textarea>
   </div>
   <button type="submit" class="btn btn-primary btn-lg" name="button">Submit</button>
 </form>

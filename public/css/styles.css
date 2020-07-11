@@ -49,7 +49,7 @@ p{
   position: absolute;
   bottom: 0;
   margin: 0 auto;
-  background-color: #66bfbf;
+  background-color: #a6dcef;
   padding: 40px 0 20px;
   width:100%;
   overflow: hidden;
@@ -71,11 +71,17 @@ p{
 .img3{
   height: 180px;
   width:180px;
-  margin-bottom: 1rem;
+  float: left;
+  margin-right: 3rem;
+  /* margin-bottom: 1rem; */
   border-radius: 100%;
 }
 .home{
     width: 70%;
     margin: 30px auto 100px auto;
     text-align: left;
+}
+
+hr{
+  width: 95%;
 }
